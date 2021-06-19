@@ -1,8 +1,6 @@
 import { FaNewspaper } from 'react-icons/fa';
 
-const LISTS = {
-  'main-newsletter': 'Main newsletter'
-};
+import { LISTS } from "../block/newsletter";
 
 export default {
   title: 'Newsletter',

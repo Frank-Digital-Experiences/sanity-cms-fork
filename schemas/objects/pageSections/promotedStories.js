@@ -21,6 +21,11 @@ export default {
         },
       ]
     },
+    {
+      title: 'Section Design',
+      name: 'sectionDesign',
+      type: 'pageSections.design',
+    },
   ],
 
   preview: {

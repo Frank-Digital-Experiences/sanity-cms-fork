@@ -21,11 +21,13 @@ export default {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Languages',
       name: 'languages',
       type: 'languages',
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Default Currency',

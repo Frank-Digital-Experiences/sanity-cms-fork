@@ -12,6 +12,8 @@
 import design from "./design";
 import form from "./form";
 import grid from "./grid";
+import gridCell from "./gridCell";
+import hero from "./hero";
 import image from "./image";
 import imgAndText from './imgAndText';
 import leadParagraph from './leadParagraph';
@@ -20,6 +22,7 @@ import paragraph from './paragraph';
 import productByCategoryIndex from './productByCategoryIndex';
 import productIndex from './productIndex';
 import promotedStories from './promotedStories';
+import quickNav from './quickNav';
 import storyIndex from "./storyIndex";
 import twoImages from './twoImages';
 import vimeo from './vimeo';
@@ -33,6 +36,7 @@ const pageSections = {
   of: [
     {type: 'pageSections.grid'},
     {type: 'pageSections.form'},
+    {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
@@ -40,6 +44,7 @@ const pageSections = {
     {type: 'pageSections.paragraph'},
     {type: 'pageSections.productIndex'},
     {type: 'pageSections.promotedStories'},
+    {type: 'pageSections.quickNav'},
     {type: 'pageSections.storyIndex'},
     {type: 'pageSections.twoImages'},
     {type: 'pageSections.vimeo'},
@@ -55,6 +60,7 @@ const productCategorySections = {
   of: [
     {type: 'pageSections.grid'},
     {type: 'pageSections.form'},
+    {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
@@ -62,6 +68,7 @@ const productCategorySections = {
     {type: 'pageSections.paragraph'},
     {type: 'pageSections.productByCategoryIndex'},
     {type: 'pageSections.promotedStories'},
+    {type: 'pageSections.quickNav'},
     {type: 'pageSections.storyIndex'},
     {type: 'pageSections.twoImages'},
     {type: 'pageSections.vimeo'},
@@ -76,6 +83,7 @@ const storySections = {
   type: 'array',
   of: [
     {type: 'pageSections.grid'},
+    {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
@@ -94,6 +102,8 @@ export default [
   design,
   form,
   grid,
+  gridCell,
+  hero,
   image,
   imgAndText,
   leadParagraph,
@@ -102,6 +112,7 @@ export default [
   productByCategoryIndex,
   productIndex,
   promotedStories,
+  quickNav,
   storyIndex,
   twoImages,
   vimeo,

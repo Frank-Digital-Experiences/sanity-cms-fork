@@ -2,30 +2,21 @@ import React from 'react';
 import { FaTshirt } from 'react-icons/fa';
 
 import PriceListComponent from "../../../src/components/PriceListComponent";
+import FieldsetTabs from "../../../src/components/FieldsetTabs";
 
 export default {
   name: 'product',
   type: 'document',
   title: 'Product',
   icon: FaTshirt,
+  inputComponent: FieldsetTabs,
   //__experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'], 
 
   fieldsets: [
-    {
-      title: 'Shopify Product Fields',
-      name: 'shopifyProductFields',
-      options: { collapsible: true },
-    },
-    {
-      title: 'Sizes',
-      name: 'sizes',
-      options: { collapsible: true },
-    },
-    {
-      title: 'Status',
-      name: 'status',
-      options: { collapsible: true },
-    },
+    { title: 'Product Data', name: 'productData', options: { sortOrder: 10 } },
+    { title: 'Variants', name: 'variants', options: { sortOrder: 20 } },
+    { title: 'Images', name: 'images', options: { sortOrder: 30 } },
+    { title: 'E-Commerce', name: 'eCommerce', options: { sortOrder: 40 } },
   ],
 
   fields: [
@@ -33,29 +24,34 @@ export default {
       title: 'Code',
       name: 'code',
       type: 'string',
+      fieldset: 'productData',
       validation: Rule => Rule.required(),
     },
     {
       title: 'Name',
       name: 'name',
       type: 'string',
+      fieldset: 'productData',
       validation: Rule => Rule.required(),
     },
     {
       title: 'Description',
       name: 'description',
       type: 'localeString',
+      fieldset: 'productData',
       validation: Rule => Rule.required(),
     },
     {
       title: 'Summary',
       name: 'summary',
       type: 'localeText',
+      fieldset: 'productData',
     },
     {
       title: 'Title',
       name: 'title',
       type: 'localeString',
+      fieldset: 'productData',
     },
     {
       title: 'Category',
@@ -64,6 +60,7 @@ export default {
       to: [
         { type: 'productCategory' },
       ],
+      fieldset: 'productData',
       validation: Rule => Rule.required(),
     },
     {
@@ -73,6 +70,7 @@ export default {
       to: [
         { type: 'productSubCategory' },
       ],
+      fieldset: 'productData',
       options: {
         filter({ document, path, parentPath }) {
           const { productCategory } = document;
@@ -89,13 +87,13 @@ export default {
       title: 'Status',
       name: 'status',
       type: 'string',
-      fieldset: 'status',
+      fieldset: 'productData',
     },
     {
       title: 'Discontinued',
       name: 'discontinued',
       type: 'boolean',
-      fieldset: 'status',
+      fieldset: 'productData',
     },
     {
       title: 'Colorways',
@@ -110,21 +108,21 @@ export default {
           ],
         },
       ],
+      fieldset: 'variants',
     },
     {
       title: 'Size Standard',
       name: 'productSizeStandard',
-      fieldset: 'sizes',
       type: 'reference',
       to: [
         { type: 'productSizeStandard' },
       ],
+      fieldset: 'variants',
     },
     {
       title: 'Sizes',
       description: 'The Sizes this product comes in',
       name: 'productSizes',
-      fieldset: 'sizes',
       type: 'array',
       of: [
         {
@@ -144,6 +142,7 @@ export default {
           },
         },
       ],
+      fieldset: 'variants',
     },
     {
       title: 'Variants',
@@ -158,6 +157,7 @@ export default {
           ],
         },
       ],
+      fieldset: 'variants',
     },
     {
       title: 'Product Images',
@@ -166,6 +166,7 @@ export default {
       of: [
         { type: 'scoped.productImage' },
       ],
+      fieldset: 'images',
     },
     {
       title: 'Product Descriptions',
@@ -175,6 +176,17 @@ export default {
       of: [
         { type: 'scoped.productDescriptionSet' },
       ],
+      fieldset: 'productData',
+    },
+    {
+      title: 'Care Instructions',
+      name: 'careInstructions',
+      description: 'References a set of care instructions. Can be scoped if there should be a specific set for a certain options (i.e. size, color, etc.)',
+      type: 'array',
+      of: [
+        { type: 'scoped.careInstructionSet' },
+      ],
+      fieldset: 'productData',
     },
     {
       title: "Prices",
@@ -184,6 +196,7 @@ export default {
         { type: 'scoped.productPrice' },
       ],
       inputComponent: PriceListComponent,
+      fieldset: 'eCommerce',
     },
     {
       title: 'External References',
@@ -192,72 +205,79 @@ export default {
       of: [
         { type: 'shopify.productReference' },
       ],
+      fieldset: 'eCommerce',
+    },
+    {
+      title: 'Profiling Friendly',
+      name: 'profilingFriendly',
+      type: 'boolean',
+      fieldset: 'productData',
     },
     {
       title: 'Product ID',
       name: 'product_id',
       type: 'number',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Body (HTML)',
       name: 'body_html',
       type: 'text',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Vendor',
       name: 'vendor',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Product Type',
       name: 'product_type',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Created At',
       name: 'created_at',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Handle',
       name: 'handle',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Updated At',
       name: 'updated_at',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Template Suffix',
       name: 'template_suffix',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Published Scope',
       name: 'published_scope',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Tags',
       name: 'tags',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
     {
       title: 'Admin GraphQL Api ID',
       name: 'admin_graphql_api_id',
       type: 'string',
-      fieldset: 'shopifyProductFields',
+      fieldset: 'eCommerce',
     },
   ],
 
@@ -287,9 +307,15 @@ export default {
 
   orderings: [
     {
-      title: 'By Code',
+      title: 'Code',
       by: [
         { field: 'code', direction: 'asc' },
+      ],
+    },
+    {
+      title: 'Name',
+      by: [
+        { field: 'name', direction: 'asc' },
       ],
     },
   ],

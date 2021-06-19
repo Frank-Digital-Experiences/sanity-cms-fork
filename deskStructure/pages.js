@@ -22,8 +22,9 @@ export function buildPagesStructure() {
           S.divider(),
           S.documentTypeListItem('pageRepresentation')
             .title('Page Representations'),
-          S.documentTypeListItem('pageImpression')
-            .title('Page Impressions'),
+          S.divider(),
+          S.documentTypeListItem('redirect')
+            .title('Redirects'),
         ]),
     );
 }

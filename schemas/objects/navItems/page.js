@@ -28,7 +28,15 @@ export default {
   preview: {
     select: {
       title: "title.en",
+      pageTitle: "navItemPage.pageConfig.pageSeo.title.en",
       subtitle: "navItemPage.pageConfig.slug.current"
-    }
+    },
+    prepare(selection) {
+      const { title, pageTitle } = selection;
+      return {
+        ...selection,
+        title: title || pageTitle,
+      };
+    },
   }
 };

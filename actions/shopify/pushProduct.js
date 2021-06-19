@@ -9,7 +9,7 @@ import { useConfirmLogDialog } from "../../utils/actions";
 const token = process.env.SANITY_STUDIO_NETLIFY_AUTH;
 const host = process.env.SANITY_STUDIO_NETLIFY_HOST;
 const SHOP_NAME = 'depalma-workwear';
-const SHOP_PRICE_LIST_CODE = '001';
+const SHOP_PRICE_LIST_CODE = '002';
 
 function colorwayOption(productColorway) {
   if (productColorway) {
@@ -70,6 +70,10 @@ function patchArray(doc, arrayFieldName, appendItem) {
     .commit()
 }
 
+function jsonStringValue(obj) {
+  return JSON.stringify(Object.keys(obj).reduce((acc, k) => k[0] === '_' ? acc : ({ ...acc, [k]: obj[k] }), {}));
+}
+
 export function pushProduct(props) {
   const { type, draft, published, onComplete } = props;
   const {
@@ -98,7 +102,7 @@ export function pushProduct(props) {
       // Fetch the productPhotos and the referensed asset documents
       const productPhotoRefs = productImages.map(pi => pi['productPhoto']);
       const productPhotoIds = productPhotoRefs.map(d => `"${d._ref}"`).join(', ');
-      const fetchProductPhotos = client.fetch(`*[_id in [${productPhotoIds}]] { _id, _type, image { asset->{ _id, url } } }`);
+      const fetchProductPhotos = client.fetch(`*[_id in [${productPhotoIds}]] { _id, _type, image { asset->{ _id, url }, hotspot, crop } }`);
 
       // Fetch the necessary documents referensed by the product
       const productScopeIds = [...productVariantRefs, ...productColorwayRefs, ...productSizeRefs, productSubCategoryRef].map(d => `"${d._ref}"`).join(', ');
@@ -125,10 +129,10 @@ export function pushProduct(props) {
 
           const productVariants   = productVariantRefs.map(ref => docsById[ref._ref]);
 
-          const priceListEur = priceLists.find(d => d.code === SHOP_PRICE_LIST_CODE);
-          const priceEur = prices.find(p => p['priceList'] && p['priceList']['_ref'] === priceListEur['_id'])?.price;
-          if (!priceEur || !priceEur.amount) {
-            throw("No EUR price found!");
+          const priceList = priceLists.find(d => d.code === SHOP_PRICE_LIST_CODE);
+          const price = prices.find(p => p['priceList'] && p['priceList']['_ref'] === priceList['_id'])?.price;
+          if (!price || !price.amount) {
+            throw(`No price found found for price list ${SHOP_PRICE_LIST_CODE}!`);
           }
 
           // Build up a list of all the variants that will be added. But because the variant object needs an image_id
@@ -143,24 +147,46 @@ export function pushProduct(props) {
               productSize,
             } = productVariant;
 
-            const { amount, compareToPrice } = priceEur;
+            const { amount, compareToPrice } = price;
             
             const productImage = getFirstScoped(imagesWithScope, [productVariant.productColorway, productVariant.productSize]);
             const productPhoto = productImage ? photosById[productImage.productPhoto?._ref] : null;
             const externalVariantReference = getExternalReference(externalVariantReferences);
 
-            const colorLabel = colorwayOption(docsById[productColorway?._ref]);
+            const colorwayDoc = docsById[productColorway?._ref];
+            const colorLabel = colorwayOption(colorwayDoc);
             const sizeLabel = sizeOption(docsById[productSize?._ref]);
+            // let metafields = [
+            //   {
+            //     key: "colorName",
+            //     value: jsonStringValue(colorwayDoc?.name),
+            //     value_type: 'json_string',
+            //     namespace: 'depalma',
+            //   },
+            // ];
+
+            // if (productPhoto) {
+            //   metafields = [
+            //     ...metafields,
+            //     {
+            //       key: "sanityImage",
+            //       value: jsonStringValue(productPhoto.image),
+            //       value_type: 'json_string',
+            //       namespace: 'depalma',
+            //     },
+            //   ];
+            // }
 
             const variant = {
               ...(externalVariantReference ? { id: externalVariantReference.variant_id } : {}),
               option1:  colorLabel,
               option2:  sizeLabel,
-              title:    `${colorLabel} ${sizeLabel}`,
               sku:      productVariant.sku,
               barcode:  productVariant.eanBarcode,
               price:    amount,
               compare_to_price: compareToPrice,
+              inventory_management: null,
+              // metafields,
             };
 
             return [variant, productVariant, externalVariantReference, productPhoto];
@@ -188,10 +214,18 @@ export function pushProduct(props) {
           // the options until we also save the variants.
           const product = {
             ...(externalReference ? {id: externalReference.product_id } : null),
-            title: `${name} ${description?.en}`,
+            title: [name, description?.en].filter(Boolean).join(' - '),
             body_html: summary?.en,
             product_type: docsById[published.productSubCategory?._ref]?.title?.en,
             images: Object.values(imagesObj),
+            // metafields: [
+            //   {
+            //     key: "description",
+            //     value: jsonStringValue(description),
+            //     value_type: 'json_string',
+            //     namespace: 'depalma',
+            //   },
+            // ],
           };
 
           const pushProduct = pushToShopify({ product });

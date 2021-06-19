@@ -1,3 +1,22 @@
+import { colorDescription } from "../../documents/colors/index";
+
+export const JUSTIFY_CONTENT_LIST = {
+  'justify-start': 'At Start',
+  'justify-end': 'At End',
+  'justify-center': 'In Center',
+  'justify-between': 'Set Space between',
+  'justify-around': 'Set Space around',
+  'justify-evenly': 'Set Space evenly',
+};
+
+export const ALIGN_ITEMS_LIST = {
+  'items-start': 'At Start',
+  'items-end': 'At End',
+  'items-center': 'At Center',
+  'items-baseline': 'On Baseline',
+  'items-stretch': 'Stretch out',
+};
+
 export default {
   title: 'Design',
   name: 'pageSections.design',
@@ -6,10 +25,25 @@ export default {
 
   fieldsets: [
     {
-      title: 'Background',
-      name: 'background',
+      title: 'Background Image',
+      name: 'backgroundImage',
       options: { collapsible: true },
-    }
+    },
+    {
+      title: 'Colours',
+      name: 'colors',
+      options: { collapsible: true },
+    },
+    {
+      title: 'Positioning',
+      name: 'positioning',
+      options: { collapsible: true },
+    },
+    {
+      title: 'Sizing',
+      name: 'sizing',
+      options: { collapsible: true },
+    },
   ],
 
   fields: [
@@ -17,39 +51,68 @@ export default {
       title: 'Background Image',
       name: 'bgImage',
       type: 'image',
-      fieldset: 'background',
+      fieldset: 'backgroundImage',
       options: { hotspot: true },
     },
     {
       title: 'Background Color',
       name: 'bgColor',
-      description: 'DePalma Blue: #2c313d, DePalma Red: #a02a23',
+      description: colorDescription,
       type: 'color',
-      fieldset: 'background',
+      fieldset: 'colors',
+    },
+    {
+      title: 'Text Color',
+      name: 'textColor',
+      description: colorDescription,
+      type: 'color',
+      fieldset: 'colors',
     },
     {
       title: 'Background placed inside Container',
       description: 'Defaults to False, which means it will line up with the window edges',
       name: 'bgInsideContainer',
       type: 'boolean',
+      fieldset: 'positioning',
     },
     {
       title: 'Content placed inside Container',
       description: 'Defaults to True, which means it will be contained within the container width (differs according to responsive configuration)',
       name: 'contentInsideContainer',
       type: 'boolean',
+      fieldset: 'positioning',
     },
     {
-      title: 'Text Color',
-      name: 'textColor',
-      description: 'DePalma Blue: #2c313d, DePalma Red: #a02a23',
-      type: 'color',
+      title: 'Justify Content',
+      description: 'Controls how the content is positioned within the section. Defaults to "At Start"',
+      name: 'justifyContent',
+      type: 'string',
+      options: {
+        list: Object.keys(JUSTIFY_CONTENT_LIST).map(k => ({ title: JUSTIFY_CONTENT_LIST[k], value: k })),
+      },
+      fieldset: 'positioning',
+    },
+    {
+      title: 'Align Items',
+      description: "Controls how the items inside are positioned along a container's cross axis",
+      name: 'alignItems',
+      type: 'string',
+      options: {
+        list: Object.keys(ALIGN_ITEMS_LIST).map(k => ({ title: ALIGN_ITEMS_LIST[k], value: k })),
+      },
+      fieldset: 'positioning',
+    },
+    {
+      title: 'Height',
+      name: 'height',
+      type: 'responsive.height',
+      fieldset: 'sizing',
     },
     {
       title: 'Padding',
-      description: 'Defaults to 10 units top and bottom (each unit is 4px)',
       name: 'padding',
-      type: 'positioning',
+      type: 'responsive.padding',
+      fieldset: 'sizing',
     },
   ],
 };

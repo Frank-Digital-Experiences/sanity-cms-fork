@@ -22,6 +22,7 @@ export default {
       type: 'array',
       of: [
         { type: 'formAddress' },
+        { type: 'formAttachment' },
         { type: 'formInput' },
         { type: 'formSelect' },
         { type: 'formToggle' },

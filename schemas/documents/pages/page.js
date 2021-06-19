@@ -1,6 +1,7 @@
 import { MdLibraryBooks } from 'react-icons/md';
 
 import { baseLanguage } from "../../languages";
+import FieldsetTabs from "../../../src/components/FieldsetTabs";
 
 
 export default {
@@ -8,11 +9,26 @@ export default {
   name: "page",
   type: "document",
   icon: MdLibraryBooks,
-  // fieldsets: supportedLanguages.map(({ title, id }) => ({
-  //   title,
-  //   name: id,
-  //   options: { collapsible: true },
-  // })),
+  inputComponent: FieldsetTabs,
+
+
+  fieldsets: [
+    {
+      title: 'Content',
+      name: 'content',
+      options: { sortOrder: 10 }
+    },
+    {
+      title: 'Config',
+      name: 'config',
+      options: { sortOrder: 20 }
+    },
+    {
+      title: 'Design',
+      name: 'design',
+      options: { sortOrder: 30 }
+    },
+  ],
 
   fields: [
     {
@@ -20,12 +36,20 @@ export default {
       type: "pageConfig",
       name: "pageConfig",
       options: { collapsible: true },
+      fieldset: 'config',
       validation: Rule => Rule.required(),
     },
     {
       title: "Page Sections",
       type: "pageSections",
-      name: "pageSections"
+      name: "pageSections",
+      fieldset: 'content',
+    },
+    {
+      title: "Page Design",
+      type: "pageDesign",
+      name: "pageDesign",
+      fieldset: 'design',
     },
   ],
 

@@ -34,6 +34,8 @@ export default () => {
       ...documentTypeListItems
         .filter(listItem => ![
           'brandColor',
+          'careInstructionItem',
+          'careInstructionSet',
           'colorCategory',
           'colorCombo',
           'country',
@@ -53,6 +55,9 @@ export default () => {
           'productSizeStandard',
           'productSubCategory',
           'productVariant',
+          'redirect',
+          'region',
+          'shippingZone',
           'site',
           'story',
         ].includes(listItem.getId())),

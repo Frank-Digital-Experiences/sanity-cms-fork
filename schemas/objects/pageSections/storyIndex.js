@@ -13,6 +13,11 @@ export default {
       name: 'storiesPerPage',
       type: 'number',
     },
+    {
+      title: 'Section Design',
+      name: 'sectionDesign',
+      type: 'pageSections.design',
+    },
   ],
 
   preview: {

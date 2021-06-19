@@ -1,9 +1,11 @@
 import { FaTshirt } from 'react-icons/fa';
 
 export const PRODUCT_FILTERS = {
-  'all-products':   'All products',
+//  'all-products':   'All products',
   'bestsellers':    'Bestsellers',
   'new-products':   'New products',
+  'profiling-friendly': 'Profiling friendly',
+  'from-list': 'From List',
 };
 
 export default {
@@ -22,6 +24,25 @@ export default {
         list: Object.keys(PRODUCT_FILTERS).map(value => ({ value, title: PRODUCT_FILTERS[value] })),
       },
       validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Product List',
+      description: 'Product Filter must be set to "From List" for this list to be used.',
+      name: 'productList',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'productPageVariant' },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Section Design',
+      name: 'sectionDesign',
+      type: 'pageSections.design',
     },
   ],
 

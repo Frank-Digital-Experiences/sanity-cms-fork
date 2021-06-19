@@ -1,3 +1,5 @@
+import { supportedLanguages } from "../languages";
+
 export default {
   title: 'Languages',
   name: 'languages',
@@ -11,18 +13,10 @@ export default {
     }
   ],
 
-  fields: [
-    {
-      title: 'English',
-      name: 'en',
-      type: 'boolean',
-      fieldset: 'listOfLanguages',
-    },
-    {
-      title: 'Swedish',
-      name: 'sv',
-      type: 'boolean',
-      fieldset: 'listOfLanguages',
-    },
-  ],
+  fields: supportedLanguages.map(lang => ({
+    title: lang.title,
+    name: lang.id,
+    type: 'boolean',
+    fieldset: 'listOfLanguages',
+  })),
 };

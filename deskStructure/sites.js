@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdLanguage } from 'react-icons/md';
-import { FaFlag } from 'react-icons/fa';
+import { FaFlag, FaGlobe } from 'react-icons/fa';
 
 export function buildSitesStructure() {
   return S.listItem()
@@ -12,6 +12,7 @@ export function buildSitesStructure() {
         .items([
           S.listItem()
             .title('Site Settings')
+            .icon(MdSettings)
             .child(
               S.list()
                 .title('Site Settings')
@@ -41,8 +42,11 @@ export function buildSitesStructure() {
                 ]),
             ),
             S.documentTypeListItem('country')
-              .title('Countries')
-              .icon(FaFlag),
+              .title('Countries'),
+            S.documentTypeListItem('region')
+              .title('Regions'),
+            S.documentTypeListItem('shippingZone')
+              .title('ShippingZones')
         ])
     );
 }

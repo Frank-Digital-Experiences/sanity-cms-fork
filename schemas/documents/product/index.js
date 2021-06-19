@@ -1,3 +1,5 @@
+import careInstructionItem from "./careInstructionItem";
+import careInstructionSet from "./careInstructionSet";
 import category from "./category";
 import colorway from "./colorway";
 import descriptionItem from "./descriptionItem";
@@ -9,6 +11,8 @@ import subCategory from "./subCategory";
 import variant from "./variant";
 
 export default [
+  careInstructionItem,
+  careInstructionSet,
   category,
   colorway,
   descriptionItem,

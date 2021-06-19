@@ -5,30 +5,31 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
+import blocks             from './objects/block/index';
 import blockContent       from './objects/blockContent';
+import countryMemberships from './objects/countryMemberships';
 import currency           from './objects/currencyCode';
-import formAddress        from './objects/formAddress';
-import formInput          from './objects/formInput';
-import formSelect         from './objects/formSelect';
-import formSelectOption   from './objects/formSelectOption';
-import formToggle         from './objects/formToggle';
+import designTheme        from './objects/designTheme';
+import formFields         from './objects/form/index';
 import languages          from './objects/languages';
-import localeBlockContent from './objects/localeBlockContent';
-import localeSlug         from './objects/localeSlug';
-import localeString       from './objects/localeString';
-import localeText         from './objects/localeText';
+import localeObjects      from './objects/locale/index';
 import multiCurrencyPrice from './objects/multiCurrencyPrice';
 import navItems           from './objects/navItems/index';
+import padding            from './objects/padding';
 import pageConfig         from './objects/pageConfig';
+import pageDesign         from './objects/pageDesign';
 import pageSections       from './objects/pageSections/index';
 import pageSeo            from './objects/pageSeo';
-import positioning        from './objects/positioning';
+import paymentMethods     from './objects/paymentMethods';
 import price              from './objects/price';
 import priceListPrice     from './objects/priceListPrice';
 import productImage       from './objects/productImage';
 import scoped             from './objects/scoped/index';
+import shippingZones      from './objects/shippingZones/index';
 import shopify            from './objects/shopify';
 import siteScope          from './objects/siteScope';
+import storyPreview       from './objects/storyPreview';
+import responsive         from './objects/responsive';
 import taggedProduct      from './objects/taggedProduct';
 import webImage           from './objects/webImage';
 
@@ -41,6 +42,8 @@ import priceList          from './documents/priceList';
 import productDocs        from './documents/product/index';
 import pages              from './documents/pages/index';
 import productPhoto       from './documents/productPhoto';
+import region             from './documents/region';
+import shippingZone       from './documents/shippingZone';
 import site               from './documents/site';
 
 
@@ -53,30 +56,31 @@ export default createSchema({
   types: schemaTypes.concat([
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
+    ...blocks,
     blockContent,
+    countryMemberships,
     currency,
-    formAddress,
-    formInput,
-    formSelect,
-    formSelectOption,
-    formToggle,
+    designTheme,
+    ...formFields,
     languages,
-    localeBlockContent,
-    localeSlug,
-    localeString,
-    localeText,
+    ...localeObjects,
     multiCurrencyPrice,
     ...navItems,
+    padding,
     pageConfig,
+    pageDesign,
     ...pageSections,
     pageSeo,
-    positioning,
+    paymentMethods,
     price,
     priceListPrice,
     productImage,
     ...scoped,
+    ...shippingZones,
     ...shopify,
     siteScope,
+    storyPreview,
+    ...responsive,
     taggedProduct,
     webImage,
 
@@ -95,5 +99,7 @@ export default createSchema({
     fittingModel,
     country,
     productPhoto,
+    region,
+    shippingZone,
   ]),
 })

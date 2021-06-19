@@ -1,4 +1,7 @@
+import React from "react";
+
 import { baseLanguage } from "../../languages";
+import { ColorPreview } from "../colors/index";
 
 export default {
   title: 'Product Page Variant',
@@ -56,15 +59,18 @@ export default {
       productCode: 'product.code',
       productName: 'product.name',
       colorwayCode: 'productColorway.code',
+      colorwayColor: 'productColorway.color.color.hex',
       colorwayName: `productColorway.name.${baseLanguage.id}`,
+      colorwayImage: 'productColorway.image',
       subtitle: 'pageConfig.slug.current',
     },
     prepare(selection) {
-      const { productCode, productName, colorwayCode, colorwayName } = selection;
+      const { productCode, productName, colorwayCode, colorwayColor, colorwayImage, colorwayName } = selection;
 
       return {
         ...selection,
         title: `${productCode} ${productName} - ${colorwayCode} ${colorwayName}`,
+        media: colorwayImage ? colorwayImage : (colorwayColor ? () => <ColorPreview color={colorwayColor} /> : null),
       };
     }
   },

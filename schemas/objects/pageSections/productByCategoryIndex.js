@@ -21,6 +21,11 @@ export default {
       type: 'string',
       validation: Rule => Rule.required(),
     },
+    {
+      title: 'Section Design',
+      name: 'sectionDesign',
+      type: 'pageSections.design',
+    },
   ],
 
   preview: {

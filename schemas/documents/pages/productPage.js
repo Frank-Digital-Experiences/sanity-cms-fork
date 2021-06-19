@@ -45,7 +45,6 @@ export default {
     select: {
       productCode: 'product.code',
       productName: 'product.name',
-      title: `pageConfig.pageSeo.title.${baseLanguage.id}`,
       subtitle: 'pageConfig.slug.current',
       media: 'pageConfig.pageSeo.image',
     },
@@ -54,7 +53,7 @@ export default {
 
       return {
         ...selection,
-        title: selection.title || `${productCode} ${productName}`,
+        title: `${productCode} ${productName}`,
       };
     },
   },
@@ -72,6 +71,12 @@ export default {
       name: 'byProductCodeAsc',
       by: [
         {field: 'product.code', direction: 'asc'},
+      ],
+    },
+    {
+      title: 'Product Name',
+      by: [
+        { field: 'product.name', direction: 'asc' },
       ],
     },
   ],

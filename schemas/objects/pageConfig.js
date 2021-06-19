@@ -17,6 +17,7 @@ export default {
       description: "This can reference any document that in turn has a 'pageConfig' field.",
       to: [
         { type: 'page' },
+        { type: 'productCategoryPage' },
         { type: 'productPage' },
         { type: 'productPageVariant' },
         { type: 'story' },

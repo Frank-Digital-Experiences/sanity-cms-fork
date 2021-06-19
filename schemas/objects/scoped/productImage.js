@@ -7,11 +7,6 @@ export default {
 
   fields: [
     {
-      title: 'Product Image',
-      name: 'productImage',
-      type: 'productImage',
-    },
-    {
       title: 'Product Photo',
       name: 'productPhoto',
       type: 'reference',

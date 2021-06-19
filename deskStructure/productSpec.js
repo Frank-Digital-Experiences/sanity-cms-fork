@@ -24,6 +24,20 @@ export function buildProductSpecStructure() {
                 ])
             ),
           S.listItem()
+            .title('Care Instructions')
+            .icon(FaList)
+            .child(
+              S.list()
+                .title('Care Instructions')
+                .items([
+                  S.documentTypeListItem('careInstructionItem')
+                    .title('Items')
+                    .icon(FaList),
+                  S.documentTypeListItem('careInstructionSet')
+                    .title('Sets of Care Instructions'),
+                ])
+            ),
+          S.listItem()
             .title('Colors')
             .icon(FaPaintBrush)
             .child(

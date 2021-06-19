@@ -19,6 +19,6 @@ export default {
       title: "Image",
       type: 'webImage',
       name: 'image',
-    },    
+    },
   ],
 };
