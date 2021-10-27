@@ -37,20 +37,8 @@ export function buildProductSpecStructure() {
                     .title('Sets of Care Instructions'),
                 ])
             ),
-          S.listItem()
-            .title('Colors')
-            .icon(FaPaintBrush)
-            .child(
-              S.list()
-                .title('Colors')
-                .items([
-                  S.documentTypeListItem('brandColor'),
-                  S.documentTypeListItem('colorCombo')
-                    .title('Color Combos'),
-                  S.documentTypeListItem('colorCategory')
-                    .title('Color Categories'),
-                ])
-            ),
+          S.documentTypeListItem('sizeGuide')
+            .title('Size Guides'),
         ]),
     );
 }

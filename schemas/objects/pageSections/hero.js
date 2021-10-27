@@ -33,10 +33,10 @@ export default {
       fieldset: 'layout',
     },
     {
-      title: 'Default Slide Image Ratio',
-      description: 'The default image ratio to be used in all slides unless set individually. Only applies to layouts that uses images.',
-      name: 'defaultImageRatio',
-      type: 'responsive.imageRatio',
+      title: 'Default Slide Ratio',
+      description: 'The default ratio to be used in all slides unless set individually. Only applies to layouts that uses images.',
+      name: 'defaultBoxRatio',
+      type: 'responsive.boxRatio',
       fieldset: 'layout',
     },
     {

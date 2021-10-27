@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Daniel Viklund <daniel.viklund@happyrabbit.com>",
+  "author": "Daniel Viklund <dannemanne@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",

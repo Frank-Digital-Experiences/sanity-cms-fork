@@ -1,13 +1,31 @@
 import { FaTshirt } from 'react-icons/fa';
-
-import { baseLanguage } from "../../languages";
-
+import FieldsetTabs from '../../../src/components/FieldsetTabs';
 
 export default {
   name: 'productPage',
   type: 'document',
   title: 'Product Page',
   icon: FaTshirt,
+  inputComponent: FieldsetTabs,
+
+  fieldsets: [
+    {
+      title: 'Content',
+      name: 'content',
+      options: { sortOrder: 10 },
+    },
+    {
+      title: 'Config',
+      name: 'config',
+      fieldset: 'config',
+      options: { sortOrder: 20 },
+    },
+    {
+      title: 'Design',
+      name: 'design',
+      options: { sortOrder: 30 },
+    },
+  ],
 
   fields: [
     {
@@ -16,6 +34,7 @@ export default {
       name: "pageConfig",
       options: { collapsible: true },
       validation: Rule => Rule.required(),
+      fieldset: 'config',
     },
     {
       title: "Product",
@@ -25,6 +44,7 @@ export default {
         { type: "product" },
       ],
       validation: Rule => Rule.required(),
+      fieldset: 'content',
     },
     {
       title: "Page Variants",
@@ -38,6 +58,13 @@ export default {
           ],
         },
       ],
+      fieldset: 'content',
+    },
+    {
+      title: "Page Design",
+      type: "pageDesign",
+      name: "pageDesign",
+      fieldset: 'design',
     },
   ],
 

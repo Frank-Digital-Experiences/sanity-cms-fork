@@ -10,9 +10,27 @@ export default {
   inputComponent: FieldsetTabs,
 
   fieldsets: [
-    { title: 'Content', name: 'content', options: { sortOrder: 10 } },
-    { title: 'Preview', name: 'preview', options: { sortOrder: 20 } },
-    { title: 'Config', name: 'config', options: { sortOrder: 30 } },
+    {
+      title: 'Content',
+      name: 'content',
+      options: { sortOrder: 10 },
+    },
+    {
+      title: 'Preview',
+      name: 'preview',
+      options: { sortOrder: 20 },
+    },
+    {
+      title: 'Config',
+      name: 'config',
+      fieldset: 'config',
+      options: { sortOrder: 30 },
+    },
+    {
+      title: 'Design',
+      name: 'design',
+      options: { sortOrder: 40 },
+    },
   ],
 
   fields: [
@@ -30,7 +48,7 @@ export default {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-      fieldset: 'config',
+      fieldset: 'content',
     },
     {
       name: 'pageSections',
@@ -55,6 +73,12 @@ export default {
       name: 'previewImage',
       type: 'webImage',
       fieldset: 'preview',
+    },
+    {
+      title: "Page Design",
+      type: "pageDesign",
+      name: "pageDesign",
+      fieldset: 'design',
     },
   ],
 

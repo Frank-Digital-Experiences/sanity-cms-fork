@@ -30,8 +30,8 @@ export default {
       options: { collapsible: true },
     },
     {
-      title: 'Colours',
-      name: 'colors',
+      title: 'Theme',
+      name: 'theme',
       options: { collapsible: true },
     },
     {
@@ -55,18 +55,24 @@ export default {
       options: { hotspot: true },
     },
     {
+      title: 'Themes',
+      name: 'themeReferences',
+      type: 'themeReferences',
+      fieldset: 'theme',
+    },
+    {
       title: 'Background Color',
       name: 'bgColor',
       description: colorDescription,
       type: 'color',
-      fieldset: 'colors',
+      fieldset: 'theme',
     },
     {
       title: 'Text Color',
       name: 'textColor',
       description: colorDescription,
       type: 'color',
-      fieldset: 'colors',
+      fieldset: 'theme',
     },
     {
       title: 'Background placed inside Container',

@@ -59,10 +59,10 @@ export default {
       fieldset: 'layout',
     },
     {
-      title: 'Default Cell Image Ratio',
-      description: 'The default image ratio to be used in all cells unless set individually. Only applies to layouts that uses images.',
-      name: 'defaultImageRatio',
-      type: 'responsive.imageRatio',
+      title: 'Default Cell Box Ratio',
+      description: 'The default box ratio to be used in all cells unless set individually. Only applies to layouts that uses images.',
+      name: 'defaultBoxRatio',
+      type: 'responsive.boxRatio',
       fieldset: 'layout',
     },
     {

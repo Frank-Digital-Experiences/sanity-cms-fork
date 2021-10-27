@@ -16,17 +16,17 @@ export default {
     {
       title: 'Content',
       name: 'content',
-      options: { sortOrder: 10 }
+      options: { sortOrder: 10 },
     },
     {
       title: 'Config',
       name: 'config',
-      options: { sortOrder: 20 }
+      options: { sortOrder: 20 },
     },
     {
       title: 'Design',
       name: 'design',
-      options: { sortOrder: 30 }
+      options: { sortOrder: 30 },
     },
   ],
 

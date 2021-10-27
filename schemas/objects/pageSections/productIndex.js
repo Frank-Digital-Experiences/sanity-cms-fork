@@ -1,11 +1,11 @@
 import { FaTshirt } from 'react-icons/fa';
 
 export const PRODUCT_FILTERS = {
-//  'all-products':   'All products',
   'bestsellers':    'Bestsellers',
   'new-products':   'New products',
   'profiling-friendly': 'Profiling friendly',
   'from-list': 'From List',
+  'discontinued': 'Discontinued',
 };
 
 export default {

@@ -14,9 +14,9 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'To Slug',
-      name: 'toSlug',
-      type: 'slug',
+      title: 'To Url',
+      name: 'toUrl',
+      type: 'string',
       validation: Rule => Rule.required(),
     },
   ],
@@ -24,7 +24,24 @@ export default {
   preview: {
     select: {
       title: 'fromSlug.current',
-      subtitle: 'toSlug.current',
+      subtitle: 'toUrl',
     },
   },
+
+  orderings: [
+    {
+      title: 'From Slug, Asc',
+      name: 'fromSlugAsc',
+      by: [
+        {field: 'fromSlug.current', direction: 'asc'},
+      ],
+    },
+    {
+      title: 'To URL, Asc',
+      name: 'toUrlAsc',
+      by: [
+        {field: 'toUrl', direction: 'asc'},
+      ],
+    },
+  ]
 };

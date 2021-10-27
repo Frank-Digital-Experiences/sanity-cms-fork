@@ -2,7 +2,7 @@ import FieldsetTabs from "../../../src/components/FieldsetTabs";
 
 export default {
   title: 'Form',
-  description: 'A form section to add a Netlify Form to the page',
+  description: 'A form section to add a Form to the page',
   name: 'pageSections.form',
   type: 'object',
   inputComponent: FieldsetTabs,
@@ -13,7 +13,7 @@ export default {
 
   fields: [
     {
-      title: 'Netlify Form',
+      title: 'Form',
       name: 'netlifyForm',
       type: 'reference',
       to: [

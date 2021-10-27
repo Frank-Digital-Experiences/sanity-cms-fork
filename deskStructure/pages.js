@@ -22,6 +22,8 @@ export function buildPagesStructure() {
           S.divider(),
           S.documentTypeListItem('pageRepresentation')
             .title('Page Representations'),
+          S.documentTypeListItem('pageSectionTemplate')
+            .title('Page Section Templates'),
           S.divider(),
           S.documentTypeListItem('redirect')
             .title('Redirects'),

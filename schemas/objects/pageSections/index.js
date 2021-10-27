@@ -23,7 +23,9 @@ import productByCategoryIndex from './productByCategoryIndex';
 import productIndex from './productIndex';
 import promotedStories from './promotedStories';
 import quickNav from './quickNav';
+import sizeGuide from "./sizeGuide";
 import storyIndex from "./storyIndex";
+import template from "./template";
 import twoImages from './twoImages';
 import vimeo from './vimeo';
 import youtube from './youtube';
@@ -45,7 +47,9 @@ const pageSections = {
     {type: 'pageSections.productIndex'},
     {type: 'pageSections.promotedStories'},
     {type: 'pageSections.quickNav'},
+    {type: 'pageSections.sizeGuide'},
     {type: 'pageSections.storyIndex'},
+    {type: 'pageSections.template'},
     {type: 'pageSections.twoImages'},
     {type: 'pageSections.vimeo'},
     {type: 'pageSections.youtube'},
@@ -69,7 +73,9 @@ const productCategorySections = {
     {type: 'pageSections.productByCategoryIndex'},
     {type: 'pageSections.promotedStories'},
     {type: 'pageSections.quickNav'},
+    {type: 'pageSections.sizeGuide'},
     {type: 'pageSections.storyIndex'},
+    {type: 'pageSections.template'},
     {type: 'pageSections.twoImages'},
     {type: 'pageSections.vimeo'},
     {type: 'pageSections.youtube'},
@@ -113,7 +119,9 @@ export default [
   productIndex,
   promotedStories,
   quickNav,
+  sizeGuide,
   storyIndex,
+  template,
   twoImages,
   vimeo,
   youtube,

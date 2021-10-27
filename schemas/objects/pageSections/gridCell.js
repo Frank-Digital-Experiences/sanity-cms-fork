@@ -102,10 +102,10 @@ export default {
       fieldset: 'layout',
     },
     {
-      title: 'Image Ratio (Responsive)',
-      description: 'The image ratio to be used in the cell. Only applies to layouts that uses images.',
-      name: 'imageRatio',
-      type: 'responsive.imageRatio',
+      title: 'Box Ratio (Responsive)',
+      description: 'The box ratio to be used in the cell. Only applies to layouts that uses images.',
+      name: 'boxRatio',
+      type: 'responsive.boxRatio',
       fieldset: 'layout',
     },
     {

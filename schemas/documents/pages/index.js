@@ -7,6 +7,7 @@ import story from "./story";
 
 import pageImpression     from './pageImpression';
 import pageRepresentation from './pageRepresentation';
+import pageSectionTemplate from "./pageSectionTemplate";
 
 export default [
   page,
@@ -18,4 +19,5 @@ export default [
 
   pageImpression,
   pageRepresentation,
+  pageSectionTemplate,
 ];

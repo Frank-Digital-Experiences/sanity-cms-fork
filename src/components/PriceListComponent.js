@@ -86,7 +86,6 @@ const PriceListComponent = forwardRef((props, ref) => {
   }, [value]);
 
   const onChangePrice = useCallback((productPrice) => {
-    console.log({ productPrice })
     const setIfMissingPatch = [{ path: [], type: "setIfMissing", value: [] }];
     const patches = [
       setIfMissingPatch,

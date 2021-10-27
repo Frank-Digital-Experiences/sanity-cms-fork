@@ -60,6 +60,21 @@ export default {
       type: 'boolean',
     },
     {
+      title: 'Bitcoin',
+      name: 'bitcoin',
+      type: 'boolean',
+    },
+    {
+      title: 'Ethereum',
+      name: 'ethereum',
+      type: 'boolean',
+    },
+    {
+      title: 'Dogecoin',
+      name: 'dogecoin',
+      type: 'boolean',
+    },
+    {
       title: 'Invoice for companies',
       name: 'invoiceForCompanies',
       type: 'boolean',

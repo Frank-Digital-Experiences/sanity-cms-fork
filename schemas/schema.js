@@ -11,6 +11,7 @@ import countryMemberships from './objects/countryMemberships';
 import currency           from './objects/currencyCode';
 import designTheme        from './objects/designTheme';
 import formFields         from './objects/form/index';
+import height             from './objects/height';
 import languages          from './objects/languages';
 import localeObjects      from './objects/locale/index';
 import multiCurrencyPrice from './objects/multiCurrencyPrice';
@@ -29,8 +30,11 @@ import shippingZones      from './objects/shippingZones/index';
 import shopify            from './objects/shopify';
 import siteScope          from './objects/siteScope';
 import storyPreview       from './objects/storyPreview';
+import stringTable        from './objects/stringTable';
 import responsive         from './objects/responsive';
 import taggedProduct      from './objects/taggedProduct';
+import themeObjects       from './objects/theme';
+import themeReferences    from './objects/themeReferences';
 import webImage           from './objects/webImage';
 
 import colors             from './documents/colors/index';
@@ -45,6 +49,8 @@ import productPhoto       from './documents/productPhoto';
 import region             from './documents/region';
 import shippingZone       from './documents/shippingZone';
 import site               from './documents/site';
+import sizeGuide          from './documents/sizeGuide';
+import theme              from './documents/theme';
 
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -62,6 +68,7 @@ export default createSchema({
     currency,
     designTheme,
     ...formFields,
+    height,
     languages,
     ...localeObjects,
     multiCurrencyPrice,
@@ -80,8 +87,11 @@ export default createSchema({
     ...shopify,
     siteScope,
     storyPreview,
+    stringTable,
     ...responsive,
     taggedProduct,
+    ...themeObjects,
+    themeReferences,
     webImage,
 
     // The following are document types which will appear
@@ -101,5 +111,7 @@ export default createSchema({
     productPhoto,
     region,
     shippingZone,
+    sizeGuide,
+    theme,
   ]),
 })

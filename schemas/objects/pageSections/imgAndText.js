@@ -44,9 +44,9 @@ export default {
       fieldset: 'image',
     },
     {
-      title: 'Image Ratio (Responsive)',
-      name: 'imageRatio',
-      type: 'responsive.imageRatio',
+      title: 'Box Ratio (Responsive)',
+      name: 'boxRatio',
+      type: 'responsive.boxRatio',
       fieldset: 'image',
     },
     {

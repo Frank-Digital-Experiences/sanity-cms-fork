@@ -1,7 +1,29 @@
+import FieldsetTabs from "../../../src/components/FieldsetTabs";
+
 export default {
   name: 'productCategoryPage',
   type: 'document',
   title: 'Product Category Page',
+  inputComponent: FieldsetTabs,
+
+  fieldsets: [
+    {
+      title: 'Content',
+      name: 'content',
+      options: { sortOrder: 10 },
+    },
+    {
+      title: 'Config',
+      name: 'config',
+      fieldset: 'config',
+      options: { sortOrder: 20 },
+    },
+    {
+      title: 'Design',
+      name: 'design',
+      options: { sortOrder: 30 },
+    },
+  ],
 
   fields: [
     {
@@ -10,6 +32,7 @@ export default {
       name: "pageConfig",
       options: { collapsible: true },
       validation: Rule => Rule.required(),
+      fieldset: 'config',
     },
     {
       title: "Product Category",
@@ -19,6 +42,7 @@ export default {
         { type: "productCategory" },
       ],
       validation: Rule => Rule.required(),
+      fieldset: 'content',
     },
     {
       title: "Product Sub-Category",
@@ -28,11 +52,19 @@ export default {
         { type: "productSubCategory" },
       ],
       validation: Rule => Rule.required(),
+      fieldset: 'content',
     },
     {
       title: "Page Sections",
       type: "pageSections.productCategory",
       name: "pageSections",
+      fieldset: 'content',
+    },
+    {
+      title: "Page Design",
+      type: "pageDesign",
+      name: "pageDesign",
+      fieldset: 'design',
     },
   ],
 

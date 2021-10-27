@@ -34,7 +34,7 @@ export default {
       type: "pageSeo",
       name: "pageSeo",
       options: { collapsible: true },
-      validation: Rule => Rule.required(),
+      // validation: Rule => Rule.required(),
     },
   ],
 };

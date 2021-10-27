@@ -45,7 +45,6 @@ const FieldsetTabs = (props, _ref) => {
     if (firstFieldInput.current) {
       firstFieldInput.current.focus();
     }
-    console.debug(`[Tabs] Focus`);
   }, [firstFieldInput]);  
   _ref({ focus });
 
@@ -124,11 +123,13 @@ const FieldsetTabs = (props, _ref) => {
 
   const onFieldChangeHandler = useCallback((field, fieldPatchEvent) => {
     if (!field.type.readOnly) {
-      var e = fieldPatchEvent
-        .prefixAll(field.name)
-        .prepend(setIfMissing({ _type: type.name }));
+      var e = fieldPatchEvent;
 
-      console.debug(`[Tabs] FieldChanged:`, field, e, props.onChange);
+      if (field.type.jsonType === 'object') {
+        e = e.prepend(setIfMissing({ _type: field.type.name }));
+      }
+      e = e.prefixAll(field.name)
+        .prepend(setIfMissing({ _type: type.name }));
 
       if (props.onChange) {
         props.onChange(e);

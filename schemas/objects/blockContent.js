@@ -59,6 +59,7 @@ export default {
     // as a block type.
     { type: 'webImage' },
     { type: 'block.cta' },
+    { type: 'block.verticalSpace' },
     // { type: 'block.newsletter' },
   ],
 }

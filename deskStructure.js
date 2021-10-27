@@ -1,5 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 
+import { buildBrandingStructure } from "./deskStructure/branding";
 import { buildSitesStructure } from "./deskStructure/sites";
 import { buildPagesStructure } from "./deskStructure/pages";
 import { buildPhotosStructure } from "./deskStructure/photos";
@@ -30,6 +31,9 @@ export default () => {
       // Add Photos types
       buildPhotosStructure(),
 
+      // Add Theme types
+      buildBrandingStructure(),
+
       // List out the rest of the document types, but filter out the config type already handled
       ...documentTypeListItems
         .filter(listItem => ![
@@ -59,7 +63,9 @@ export default () => {
           'region',
           'shippingZone',
           'site',
+          'sizeGuide',
           'story',
+          'theme',
         ].includes(listItem.getId())),
     ])
 }

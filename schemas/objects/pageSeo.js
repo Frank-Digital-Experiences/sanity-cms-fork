@@ -8,7 +8,7 @@ export default {
       title: "Title",
       type: "localeString",
       name: "title",
-      validation: Rule => Rule.required(),
+      // validation: Rule => Rule.required(),
     },
     {
       title: "Description",

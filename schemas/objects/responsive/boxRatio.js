@@ -2,18 +2,18 @@ import FieldsetTabs from "../../../src/components/FieldsetTabs";
 
 export const RATIO_LIST = {
   '3:4': '3:4',
-  'square': 'Square',
+  '1:1': 'Square',
   '4:3': '4:3',
   '16:9': '16:9',
-  'panorama': 'Panorama',
+  '2:1': 'Panorama (2:1)',
 };
 
 const list = Object.keys(RATIO_LIST).map(k => ({ title: RATIO_LIST[k], value: k }));
 
 export default {
   title: 'Ratio (Responsive)',
-  description: 'Sets the Ratio that should be used for an Image.',
-  name: 'responsive.imageRatio',
+  description: 'Sets the Ratio that should be used for a box.',
+  name: 'responsive.boxRatio',
   type: 'object',
   options: {
     collapsible: true,
@@ -22,11 +22,11 @@ export default {
   },
   inputComponent: FieldsetTabs,
   fieldsets: [
-    { name: "xs", title: "< 640", options: { sortOrder: 50 } },
-    { name: "sm", title: "< 768", options: { sortOrder: 40 } },
-    { name: "md", title: "< 1024", options: { sortOrder: 30 } },
-    { name: "lg", title: "< 1280", options: { sortOrder: 20 } },
-    { name: "xl", title: "Default", options: { sortOrder: 10 } },
+    { name: "xs", title: "Default", options: { sortOrder: 10 } },
+    { name: "sm", title: "> 640", options: { sortOrder: 20 } },
+    { name: "md", title: "> 768", options: { sortOrder: 30 } },
+    { name: "lg", title: "> 1024", options: { sortOrder: 40 } },
+    { name: "xl", title: "> 1280", options: { sortOrder: 50 } },
   ],
 
   fields: [

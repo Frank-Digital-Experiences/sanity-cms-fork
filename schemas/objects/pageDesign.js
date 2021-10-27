@@ -24,5 +24,10 @@ export default {
       description: 'Can be used to switch to white color when using hero images that contrasts better with another color',
       type: 'designTheme',
     },
+    {
+      title: 'Themes',
+      name: 'themeReferences',
+      type: 'themeReferences',
+    },
   ],
 };
