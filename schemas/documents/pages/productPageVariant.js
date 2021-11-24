@@ -99,8 +99,9 @@ export default {
     },
     {
       title: "Page Sections",
-      type: "pageSections",
       name: "pageSections",
+      type: "pageSections.productPageVariant",
+      description: "Defaults to include a \"Product Descriptions & Care Instructions\" section if nothing is specified",
       fieldset: 'content',
     },
     {
