@@ -195,7 +195,7 @@ export default {
       of: [
         { type: 'scoped.productPrice' },
       ],
-      inputComponent: PriceListComponent,
+      //inputComponent: PriceListComponent,
       fieldset: 'eCommerce',
     },
     {
