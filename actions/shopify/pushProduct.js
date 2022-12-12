@@ -148,7 +148,7 @@ export function pushProduct(props) {
             } = productVariant;
 
             const { amount, compareToPrice } = price;
-            
+
             const productImage = getFirstScoped(imagesWithScope, [productVariant.productColorway, productVariant.productSize]);
             const productPhoto = productImage ? photosById[productImage.productPhoto?._ref] : null;
             const externalVariantReference = getExternalReference(externalVariantReferences);
@@ -198,7 +198,7 @@ export function pushProduct(props) {
           const imagesObj = variants.reduce((acc, [variant, productVariant, externalVariantReference, productPhoto]) => {
             if (!productPhoto || acc[productPhoto._id]?.id)
               return acc;
-              
+
             if (externalVariantReference && externalVariantReference.asset_id === productPhoto.image.asset._id) {
               return { ...acc, [productPhoto._id]: { id: externalVariantReference.image_id } };
             }
@@ -303,8 +303,8 @@ export function pushProduct(props) {
 
             const updExtRef = {
               ...externalVariantReference,
-              variant_id: shopifyVariant.id,
-              presentment_prices: shopifyVariant.presentment_prices,
+              variant_id: shopifyVariant.id
+              // presentment_prices: shopifyVariant.presentment_prices,
             };
 
             patchArray(productVariant, 'externalReferences', updExtRef);
@@ -320,8 +320,8 @@ export function pushProduct(props) {
             shopName: SHOP_NAME,
             product_id: shopifyProduct.id,
             asset_id,
-            image_id,
-            presentment_prices: shopifyProduct.variants[0].presentment_prices,
+            image_id
+            // presentment_prices: shopifyProduct.variants[0].presentment_prices,
           };
 
           patchArray(published, 'externalReferences', updExternalReference);
@@ -343,11 +343,11 @@ export function pushProduct(props) {
     label: existsInShopify ? 'Update Product' : 'Add Product',
     icon: FaShopify,
     disabled: !host || draft || published?.status === 'DISCONTINUED',
-    
+
     // Opens the confirm dialog with a message
     onHandle,
 
     // The confirm/modal dialog based on the latest state
     dialog,
-  } 
+  }
 }

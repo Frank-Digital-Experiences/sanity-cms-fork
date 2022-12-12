@@ -3,7 +3,7 @@ export default {
   name: 'shopify.variantReference',
   title: "Variant Reference",
   options: { collapsible: true },
-  
+
   fields: [
     {
       title: 'Shop name',
@@ -40,17 +40,17 @@ export default {
   preview: {
     select: {
       shopName: 'shopName',
-      presentment_prices: 'presentment_prices',
+      variant_id: 'variant_id'
     },
     prepare(selection) {
-      const { shopName, presentment_prices } = selection;
-
-      const prices = presentment_prices.reduce((acc, p) => ({ ...acc, [p.price.currency_code]: p.price.amount }), {});
+      const { shopName, variant_id } = selection;
+      // const prices = presentment_prices.reduce((acc, p) => ({ ...acc, [p.price.currency_code]: p.price.amount }), {});
 
       return {
         ...selection,
         title: `Store: ${shopName}`,
-        subtitle: Object.keys(prices).map(currencyCode => `${currencyCode}: ${prices[currencyCode]}`).join(' | '),
+        subtitle: `Variant Id: ${variant_id}`
+        // subtitle: Object.keys(prices).map(currencyCode => `${currencyCode}: ${prices[currencyCode]}`).join(' | '),
       }
     }
   },

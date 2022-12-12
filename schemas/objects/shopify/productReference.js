@@ -6,7 +6,7 @@ export default {
   title: "Product Reference",
   options: { collapsible: true },
   icon: FaShopify,
-  
+
   fields: [
     {
       title: 'Shop name',
@@ -38,17 +38,17 @@ export default {
   preview: {
     select: {
       shopName: 'shopName',
-      presentment_prices: 'presentment_prices',
+      product_id: 'product_id'
     },
     prepare(selection) {
-      const { shopName, presentment_prices } = selection;
-
-      const prices = presentment_prices.reduce((acc, p) => ({ ...acc, [p.price.currency_code]: p.price.amount }), {});
+      const { shopName, product_id } = selection;
+      // const prices = presentment_prices.reduce((acc, p) => ({ ...acc, [p.price.currency_code]: p.price.amount }), {});
 
       return {
         ...selection,
         title: `Store: ${shopName}`,
-        subtitle: Object.keys(prices).map(currencyCode => `${currencyCode}: ${prices[currencyCode]}`).join(' | '),
+        subtitle: `Product Id: ${product_id}`
+        // subtitle: Object.keys(prices).map(currencyCode => `${currencyCode}: ${prices[currencyCode]}`).join(' | '),
       }
     }
   },
