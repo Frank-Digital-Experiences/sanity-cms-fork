@@ -76,7 +76,6 @@ function jsonStringValue(obj) {
 
 export function pushProduct(props) {
   const { type, draft, published, onComplete } = props;
-  console.log(props)
   const {
     name,
     description,
