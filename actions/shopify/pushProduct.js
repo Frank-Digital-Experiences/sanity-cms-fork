@@ -6,10 +6,8 @@ import { nanoid } from "nanoid";
 
 import { useConfirmLogDialog } from "../../utils/actions";
 
-// const token = process.env.SANITY_STUDIO_NETLIFY_AUTH;
-// const host = process.env.SANITY_STUDIO_NETLIFY_HOST;
-const token = 'YRywTV3ZOtnQ8hAboryBUSA05Qh58A4eYEsNLbtYSpM';
-const host = 'https://depalma-workwear.netlify.app/';
+const token = process.env.SANITY_STUDIO_NETLIFY_AUTH;
+const host = process.env.SANITY_STUDIO_NETLIFY_HOST;
 const SHOP_NAME = 'depalma-workwear';
 const SHOP_PRICE_LIST_CODE = '002';
 
