@@ -7,6 +7,7 @@
   "author": "Daniel Viklund <dannemanne@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
+    "postinstall": "patch-package",
     "start": "sanity start",
     "build": "sanity build"
   },
@@ -23,10 +24,11 @@
     "@sanity/desk-tool": "^2.6.4",
     "@sanity/vision": "^2.2.6",
     "axios": "^0.21.1",
+    "patch-package": "^8.0.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
-    "react-icons": "^4.2.0"
-  },
-  "devDependencies": {}
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.3.11"
+  }
 }
