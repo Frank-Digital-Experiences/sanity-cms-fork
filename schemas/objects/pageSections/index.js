@@ -30,7 +30,7 @@ import template from "./template";
 import twoImages from './twoImages';
 import vimeo from './vimeo';
 import youtube from './youtube';
-
+import typeform from "./typeform"
 const pageSections = {
   title: 'Page Sections',
   description: 'A list of page sections.',
@@ -41,6 +41,7 @@ const pageSections = {
     {type: 'pageSections.form'},
     {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
+    {type: 'pageSections.typeform'},
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
     {type: 'pageSections.newsletter'},
@@ -71,6 +72,8 @@ const productCategorySections = {
     {type: 'pageSections.form'},
     {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
+    {type: 'pageSections.typeform'},
+
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
     {type: 'pageSections.newsletter'},
@@ -101,6 +104,7 @@ const productPageVariantSections = {
     {type: 'pageSections.form'},
     {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
+    {type: 'pageSections.typeform'},
     {type: 'pageSections.imgAndText'},
     {type: 'pageSections.leadParagraph'},
     {type: 'pageSections.newsletter'},
@@ -127,6 +131,7 @@ const storySections = {
     {type: 'pageSections.hero'},
     {type: 'pageSections.image'},
     {type: 'pageSections.imgAndText'},
+    {type: 'pageSections.typeform'},
     {type: 'pageSections.leadParagraph'},
     {type: 'pageSections.paragraph'},
     {type: 'pageSections.twoImages'},
@@ -147,6 +152,7 @@ export default [
   gridCell,
   hero,
   image,
+  typeform,
   imgAndText,
   leadParagraph,
   newsletter,
